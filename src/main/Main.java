@@ -11,6 +11,9 @@ public class Main {
 
         ArrayList<Vehicle> vehicles = new ArrayList<>();
 
+        VehicleManagerImpl vehicleManagerImpl = new VehicleManagerImpl();
+
+
         do {
             System.out.println("Vehicle Fleet Management System");
             System.out.println("-------------------------------");
@@ -28,13 +31,11 @@ public class Main {
                     System.out.println("Enter 'car' or 'truck': ");
                     String choice = scanner.nextLine();
                     if (choice.equals("car")) {
-                        Car car = new Car();
-                        Vehicle newCar = car.addVehicle(scanner);
+                        Vehicle newCar = vehicleManagerImpl.addVehicle(scanner);
                         vehicles.add(newCar);
                         break;
                     } else if (choice.equals("truck")) {
-                        Truck truck = new Truck();
-                        Vehicle newTruck = truck.addVehicle(scanner);
+                        Vehicle newTruck = vehicleManagerImpl.addVehicle(scanner);
                         vehicles.add(newTruck);
                         break;
                     } else {
@@ -52,15 +53,36 @@ public class Main {
                         System.out.println("There is no vehicles currently.");
                         break;
                     } else {
-                        for (Vehicle oneVehicle : vehicles) {
-                            System.out.println(oneVehicle.getBrand() + " " + oneVehicle.getModel());
-                        }
+                        vehicleManagerImpl.printAllVehicle(vehicles);
                         break;
                     }
                 }
                 case 4: {
                     System.out.println("Delete vehicle");
+                    System.out.println("Enter VIN of vehicle to delete: ");
+
+                    String vinNumberToDelete = scanner.nextLine();
+
+                    for (Vehicle oneVehicle : vehicles) {
+                        String getVinNmbr = oneVehicle.getVin();
+                        if (vinNumberToDelete.isEmpty()) {
+                            System.out.println("There is no VIN number. Try again.");
+                        } else if (vinNumberToDelete == getVinNmbr) {
+                            int index = vehicles.indexOf(oneVehicle);
+                            vehicles.remove(index);
+                            // nes sere
+
+                            //ovo radi
+//                            vehicles.removeIf(t -> t.getVin().equals(vinNumberToDelete));
+                            System.out.println("Vehicle with VIN " + getVinNmbr + " deleted successfully.");
+                        } else {
+                            System.out.println("There is no such vehicle. Try again");
+                        }
+                    }
                     break;
+                }
+                case 5: {
+                    System.out.println("Goodbye");
                 }
             }
         } while (selection != 5);

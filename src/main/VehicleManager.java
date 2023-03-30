@@ -1,19 +1,21 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public interface VehicleManager {
 
-    default Vehicle addVehicle(Scanner scanner) {
-        Vehicle vehicle = null;
-        return vehicle;
-    }
+    Vehicle addVehicle();
 
-    default void searchVehicle() {
+    Vehicle addVehicle(Scanner scanner);
 
-    }
+    void searchVehicle();
 
     void printAllVehicle();
+
+    default void printAllVehicle(ArrayList<Vehicle> vehicles) {
+
+    }
 
     void removeVehicle();
 

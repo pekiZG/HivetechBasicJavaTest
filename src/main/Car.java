@@ -2,7 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-public class Car extends Vehicle implements VehicleManager {
+public class Car extends Vehicle {
 
     private String doorNumber;
 
@@ -34,56 +34,43 @@ public class Car extends Vehicle implements VehicleManager {
     }
 
 
-    @Override
-    public Vehicle addVehicle(Scanner scanner) {
-        Car car = new Car();
-        System.out.print("Enter car brand: ");
-        String brand = scanner.next();
-        car.setBrand(brand);
+//    @Override
+//    public Vehicle addVehicle(Scanner scanner) {
+//        Car car = new Car();
+//        System.out.print("Enter car brand: ");
+//        String brand = scanner.next();
+//        car.setBrand(brand);
+//
+//        System.out.print("Enter car model: ");
+//        String model = scanner.next();
+//        car.setModel(model);
+//
+//        System.out.print("Enter car year: ");
+//        String productionYear = scanner.next();
+//        car.setProductionYear(productionYear);
+//
+//        System.out.print("Enter car VIN: ");
+//        String vin = scanner.next();
+//        car.setVin(vin);
+//
+//        System.out.print("Enter car color: ");
+//        String color = scanner.next();
+//        car.setColor(color);
+//
+//        System.out.print("Enter car fuel type: ");
+//        String fuelType = scanner.next();
+//        car.setFuelType(fuelType);
+//
+//        System.out.print("Enter car number of doors: ");
+//        String doorNumber = scanner.next();
+//        car.setDoorNumber(doorNumber);
+//
+//        System.out.print("Enter car body type: ");
+//        String bodyType = scanner.next();
+//        car.setBodyType(bodyType);
+//
+//        return car;
+//    }
 
-        System.out.print("Enter car model: ");
-        String model = scanner.next();
-        car.setModel(model);
 
-        System.out.print("Enter car year: ");
-        String productionYear = scanner.next();
-        car.setProductionYear(productionYear);
-
-        System.out.print("Enter car VIN: ");
-        String vin = scanner.next();
-        car.setVin(vin);
-
-        System.out.print("Enter car color: ");
-        String color = scanner.next();
-        car.setColor(color);
-
-        System.out.print("Enter car fuel type: ");
-        String fuelType = scanner.next();
-        car.setFuelType(fuelType);
-
-        System.out.print("Enter car number of doors: ");
-        String doorNumber = scanner.next();
-        car.setDoorNumber(doorNumber);
-
-        System.out.print("Enter car body type: ");
-        String bodyType = scanner.next();
-        car.setBodyType(bodyType);
-
-        return car;
-    }
-
-    @Override
-    public void searchVehicle() {
-
-    }
-
-    @Override
-    public void printAllVehicle() {
-
-    }
-
-    @Override
-    public void removeVehicle() {
-
-    }
 }
