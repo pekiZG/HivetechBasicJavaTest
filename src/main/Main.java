@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -35,8 +36,8 @@ public class Main {
                         vehicles.add(newCar);
                         break;
                     } else if (choice.equals("truck")) {
-                        Vehicle newTruck = vehicleManagerImpl.addVehicle(scanner);
-                        vehicles.add(newTruck);
+//                        Vehicle newTruck = vehicleManagerImpl.addVehicle(scanner);
+//                        vehicles.add(newTruck);
                         break;
                     } else {
                         System.out.println("Wrong expression. Try again!");
@@ -63,22 +64,30 @@ public class Main {
 
                     String vinNumberToDelete = scanner.nextLine();
 
-                    for (Vehicle oneVehicle : vehicles) {
-                        String getVinNmbr = oneVehicle.getVin();
-                        if (vinNumberToDelete.isEmpty()) {
-                            System.out.println("There is no VIN number. Try again.");
-                        } else if (vinNumberToDelete == getVinNmbr) {
-                            int index = vehicles.indexOf(oneVehicle);
-                            vehicles.remove(index);
-                            // nes sere
-
-                            //ovo radi
-//                            vehicles.removeIf(t -> t.getVin().equals(vinNumberToDelete));
-                            System.out.println("Vehicle with VIN " + getVinNmbr + " deleted successfully.");
-                        } else {
-                            System.out.println("There is no such vehicle. Try again");
+                    Iterator iterator = vehicles.iterator();
+                    while (iterator.hasNext()) {
+                        Vehicle element = (Vehicle) iterator.next();
+                        if (element.getVin().equals(vinNumberToDelete)) {
+                            iterator.remove();
+                            System.out.println("Vehicle with VIN " + element.getVin() + " deleted successfully.");
                         }
                     }
+
+//                    for (Vehicle oneVehicle : vehicles) {
+//                        String getVinNmbr = oneVehicle.getVin();
+//                        if (vinNumberToDelete.isEmpty()) {
+//                            System.out.println("There is no VIN number. Try again.");
+//                        } else if (vinNumberToDelete.equals(getVinNmbr)) {
+//                            vehicles.remove(oneVehicle);
+//                            // nes sere
+//
+//                            //ovo radi
+////                            vehicles.removeIf(t -> t.getVin().equals(vinNumberToDelete));
+//                            System.out.println("Vehicle with VIN " + getVinNmbr + " deleted successfully.");
+//                        } else {
+//                            System.out.println("There is no such vehicle. Try again");
+//                        }
+//                    }
                     break;
                 }
                 case 5: {

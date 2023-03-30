@@ -5,18 +5,13 @@ import java.util.Scanner;
 
 public class VehicleManagerImpl implements VehicleManager{
 
-
-    private ArrayList<Vehicle> vehicles;
-
     public VehicleManagerImpl() {
 
     }
 
-
     @Override
-    public Vehicle addVehicle() {
-        return null;
-    }
+    public Vehicle addVehicle(){return null;};
+
 
     @Override
     public Vehicle addVehicle(Scanner scanner) {
@@ -55,6 +50,7 @@ public class VehicleManagerImpl implements VehicleManager{
         return car;
     }
 
+
     @Override
     public void searchVehicle() {
 
@@ -67,7 +63,6 @@ public class VehicleManagerImpl implements VehicleManager{
 
     @Override
     public void printAllVehicle(ArrayList<Vehicle>  vehicles) {
-//        this.vehicles = vehicles;
         for (Vehicle oneVehicle : vehicles) {
             System.out.println(oneVehicle.getBrand() + " " + oneVehicle.getModel());
         }
