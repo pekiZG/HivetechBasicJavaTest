@@ -64,25 +64,26 @@ public class Main {
 
                     String vinNumberToDelete = scanner.nextLine();
 
-                    Iterator iterator = vehicles.iterator();
+                    Iterator<Vehicle> iterator = vehicles.iterator();
                     while (iterator.hasNext()) {
-                        Vehicle element = (Vehicle) iterator.next();
+                        Vehicle element = iterator.next();
                         if (element.getVin().equals(vinNumberToDelete)) {
                             iterator.remove();
                             System.out.println("Vehicle with VIN " + element.getVin() + " deleted successfully.");
                         }
                     }
-
+//                      nes sere
 //                    for (Vehicle oneVehicle : vehicles) {
 //                        String getVinNmbr = oneVehicle.getVin();
 //                        if (vinNumberToDelete.isEmpty()) {
 //                            System.out.println("There is no VIN number. Try again.");
 //                        } else if (vinNumberToDelete.equals(getVinNmbr)) {
 //                            vehicles.remove(oneVehicle);
-//                            // nes sere
+//
 //
 //                            //ovo radi
 ////                            vehicles.removeIf(t -> t.getVin().equals(vinNumberToDelete));
+
 //                            System.out.println("Vehicle with VIN " + getVinNmbr + " deleted successfully.");
 //                        } else {
 //                            System.out.println("There is no such vehicle. Try again");
